@@ -1,0 +1,50 @@
+
+    <% content_for :menu do %>
+    <p></p>
+    <% end %>
+
+
+
+<div class="back_white container-fluid">
+    <div class="row">
+      <div class="col s12">
+
+        <h1 class="title_h3"><%= @user.fname %>'s profile </h1>
+            <%= link_to 'Back', users_path, class: "btn blue" %>
+            <% if @user.email == session[:me] %><%= link_to 'Edit', edit_user_path(@user), class: "btn blue" %><% end %>
+            <br>
+            <br>
+
+            <p>
+                <strong>First Name:</strong>
+                <%= @user.fname %>
+            </p>
+
+            <p>
+                <strong>Last Name:</strong>
+                <%= @user.lname %>
+            </p>
+
+
+            <p>
+                <strong>Nickname:</strong>
+                <%= @user.nickname %>
+            </p>
+
+            <p>
+                <%= image_tag(@user.avatar.url(:thumb)) %>
+            </p>
+
+            <p>
+                <strong>Language:</strong>
+                <%= @user.lang %>
+            </p>
+            <% @user.movies.each do |movie| %>
+                <pre><%= movie.inspect %></pre>
+
+            <% end %>
+        <br>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,109 @@
+
+<% content_for :menu do %>
+    <p></p>
+<% end %>
+
+<div class="movies_list" id="url" data-url='<%= @url %>'></div>
+<div class="movies_data" id="movie_count" hidden><%= @movies['data']['movie_count'] %></div>
+
+<div class=" container-fluid">
+    <div class="row">
+      <div id="form" class="col s12">
+
+        <h1 class="title_h3">Movies list</h1>
+
+            <div class="row">
+              <div class="col l4 m6 s12">
+                <%= label_tag(:title, "Search Movie :") %><%= text_field_tag 'title' %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col s4">
+                <p class="white-text">Rating</p>
+                <%= select_tag "rating", options_for_select((0..9)), class: "rating" %>
+              </div>
+              <div class="col s4">
+              <p class="white-text">Date</p>
+                <%= select_tag "date_min", options_for_select(["---"] + (1920..Date.current.year.to_i).to_a), class: "date_min" %>
+              </div>
+              <!-- <div class="col s4">
+              <p class="white-text">Date to</p>
+                 <%= select_tag "date_max", options_for_select((1951..Date.current.year.to_i)), class: "date_max" %>
+              </div> -->
+            </div>
+
+
+            <p class="white-text">Select Genre :</p>
+            <div class="field">
+            <% Movie::CATEGORIES.each do |categoy| %>
+                <%= check_box_tag categoy, false, false, class: "categories" %><%= label_tag(categoy, categoy ) %>
+            <% end %>
+
+            </div>
+
+        <br>
+
+    </div>
+  </div>
+</div>
+
+
+
+<hr>
+
+
+
+
+  <div class="container-fluid">
+        <div class="row contain_movies" id="contain_movies">
+
+
+            <% @movies['data']['movies'].each do |movie| %>
+
+
+                <div class="col l3 m3 s6">
+                  <div class="card custom_card">
+                      <a href="/movies/<%= movie['id'] %>">
+                        <div class="card-image">
+                          <img src="<%= movie['medium_cover_image'] %>">
+                          <span class="card-title"><%= movie['title_long'] %></span>
+                        </div>
+                      </a>
+                    <div class="card-content">
+                    IMDb : <%= movie['rating'] %> / 10
+                    </div>
+                    <div class="card-action">
+                      <a href="/movies/<%= movie['id'] %>" class="waves-effect blue btn">Show movie</a>
+                    </div>
+                  </div>
+                </div>
+
+            <% end %>
+
+    </div>
+</div>
+
+
+<!-- --------------------------------------------------------------------- -->
+
+<script id="movie" type="text/x-jquery-tmpl">
+
+    <div class="col l3 m3 s6">
+      <div class="card custom_card">
+          <a href="/movies/${id}">
+            <div class="card-image">
+              <img src="${medium_cover_image}">
+              <span class="card-title">${title_long}</span>
+            </div>
+          </a>
+        <div class="card-content">
+        IMDb : ${rating} / 10
+        </div>
+        <div class="card-action">
+          <a href="/movies/${id}" class="waves-effect blue btn">Show movie</a>
+        </div>
+      </div>
+    </div>
+
+</script>

@@ -1,0 +1,12 @@
+
+<nav>
+  <div class="color_nav nav-wrapper">
+    <ul class="left hide-on-med-and-down">
+      <li><a href="<%= users_path %>">Users List</a></li>
+      <li><a href="<%= root_path %>">Movies List</a></li>
+      <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+    </ul>
+  </div>
+</nav>
+
+

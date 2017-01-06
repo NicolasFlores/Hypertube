@@ -1,0 +1,13 @@
+<h1 class="title_h1">Editing User</h1>
+
+<%= link_to 'Show', @user, class: "btn blue" %> |
+<%= link_to 'Back', users_path, class: "btn blue"%>
+
+<% content_for :menu do %>
+    <%= link_to "Movies List", root_path %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+<% end %>
+<br>
+<br>
+
+<%= render 'form', user: @user %>

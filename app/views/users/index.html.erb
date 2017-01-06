@@ -1,0 +1,47 @@
+<div class="back_white container-fluid">
+    <div class="row">
+      <div class="col s12">
+
+        <h1 class="title_h3">Users</h1>
+
+        <% content_for :menu do %>
+            <%= link_to 'New User', new_user_path %>
+            <%= link_to "Movies List", root_path %>
+            <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+        <% end %>
+
+        <% @users.each do |user| %>
+            <% if user.email == session[:me] %><%= link_to 'Edit my profil', edit_user_path(user), class: "btn blue" %><% end %>
+        <% end %>
+
+        <table class="bordered responsive-table">
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Nickname</th>
+              <th>Film collection</th>
+              <th colspan="2"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= user.fname %></td>
+                <td><%= user.lname %></td>
+                <td><%= user.nickname %></td>
+                <td><%= user.movies.count %></td>
+                <td><% if user.avatar %><%= image_tag(user.avatar.url(:thumb)) %><% end %></td>
+                <td><%= link_to 'Show', user , class: "btn blue" %></td>
+                <td><% if user.email == session[:me] %><%= link_to 'Edit', edit_user_path(user), class: "btn blue" %><% end %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+        <br>
+
+    </div>
+  </div>
+</div>

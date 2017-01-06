@@ -1,0 +1,241 @@
+#front {
+
+  background-color: rgba(2,9,23,.95);
+
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: #f9f9f9;
+  }
+
+  .container {
+
+  }
+
+  .back_white {
+    background-color: white;
+  }
+
+
+  .home {
+    background-image: url(https://s3-eu-west-1.amazonaws.com/mardi-gras/asset2/atomic_background.png);
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
+    flex: 1 0 auto;
+    min-height: 1000px;
+  }
+
+  .title_h1 {
+    font-size: 6rem;
+    line-height: 6.3rem;
+    font-style: normal;
+    font-weight: 500;
+    color: #ffc203;
+  }
+
+  .title_h3 {
+    font-size: 3rem;
+    line-height: 4.3rem;
+    font-style: normal;
+    font-weight: 500;
+    color: #ffc203;
+  }
+
+
+  .contain_sign_in .contain_log {
+    padding: 10px;
+  }
+
+  .contain_log {
+    margin-bottom: 10px;
+  }
+
+
+  input[type=text], textarea, input[type=email], input[type=password] {
+    width: 80%;
+    margin-bottom: 14px;
+    background-color: #404a5f;
+    padding: 18px;
+    padding-left: 22px;
+    font-size: 20px;
+    color: #adbac6;
+    border-radius: 3px;
+  }
+
+  textarea {
+    width: 100%;
+    height: 150px;
+    box-sizing: content-box;
+  }
+
+  textarea {
+    width:100%;
+  }
+
+  .textwrapper
+  {
+    border:1px solid #999999;
+    margin:5px 0;
+    padding:3px;
+  }
+
+  .color_nav {
+    background-color: rgba(2,9,23,.95);
+  }
+
+
+  .maskcolor {
+    background: #070f1b;
+  }
+
+
+
+
+
+
+select {
+    display: block;
+}
+
+
+
+
+
+
+
+
+[type="checkbox"] + label {
+    padding-left: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.nav-wrapper li  {
+  text-transform: uppercase;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight : bold;
+}
+
+nav ul a {
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+nav ul a:hover {
+    background-color: red;
+}
+
+.nav_menu  li:hover {
+  background-color: rgba(255,255,255,.2);
+  border-top: 2px solid #2a70ab;
+}
+
+
+
+.nav_menu .btn:hover {
+  background-color: #fb8c00;
+}
+
+
+
+  .nav-wrapper li  {
+  text-transform: uppercase;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight : bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

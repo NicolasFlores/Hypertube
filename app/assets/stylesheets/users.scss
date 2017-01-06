@@ -1,0 +1,44 @@
+
+.logo_sign_in {
+  width: 100%;
+  height: 100%;
+}
+
+.contain_logo_sign_in {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.contain_sign_in a {
+    width: 30%;
+    height: 30%;
+}
+
+.contain_sign_in {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border: solid;
+  border-width: 2px;
+  border-radius: 6px;
+  background-color: rgba(2, 9, 23, 0.95);
+}
+
+.contain_log {
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border: solid;
+  border-width: 2px;
+  border-radius: 6px;
+  background-color: rgba(2, 9, 23, 0.95);
+}

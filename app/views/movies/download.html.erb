@@ -1,0 +1,25 @@
+<div id="loading-overlay"></div>
+<div id="loading-message">
+    <span id="loading">Loading page, please wait...</span><br />
+    <h1 id="timer">30 secondes</h1>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    var i = 0;
+    var cmpt = 30;
+    var v_time = 1000
+    while (i < 30) {
+        v_time = 1000 * i;
+        setTimeout(function(){
+            cmpt--;
+            $("#timer").text(cmpt.toString() + " secondes");
+            console.log(cmpt);
+            if (cmpt == 0) {
+                window.location.href = "/movies/stream/<%= params[:id_movie] %>/<%= params[:hash] %>";
+            }
+        }, v_time);
+        i++;
+    }
+});
+</script>

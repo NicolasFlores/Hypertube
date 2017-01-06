@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hypertube</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body id="front">
+
+     <%= render 'layouts/header' %>
+    <div class="home">
+
+      <% if content_for? :menu %>
+        <%= render 'layouts/navbar' %>
+      <% end %>
+
+      <p class="alert-notice" id="notice"><%= notice %></p>
+      <p class="alert-alert"><%= alert %></p>
+
+      <!-- #A TEST -->
+      <div class="container">
+        <% render 'layouts/messages' %>
+      </div>
+
+
+      <%= yield %>
+
+
+    </div>
+        <%= render 'layouts/footer' %>
+
+
+  </body>
+</html>

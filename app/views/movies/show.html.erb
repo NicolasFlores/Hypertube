@@ -1,0 +1,99 @@
+<% content_for :menu do %>
+    <p></p>
+<% end %>
+
+
+<div class="white contain_movie container-fluid">
+    <div class="row">
+      <div class="col s12">
+
+        <h1 class="title_h3"><%= @movie['title_long'] %></h1>
+        <p>IMDb : <%= @movie['rating'] %> / 10</p>
+        <div class="row">
+          <div class="col s6">
+           <div class="img_movie">
+                <img alt="" src="<%= @movie['large_cover_image'] %>">
+            </div>
+          </div>
+          <div class="col s6">
+            <div class="row">
+
+            <% @movie["torrents"].each do |torrent | %>
+                <div class="col s6">
+                <p>seed : <%= torrent["seeds"] %></p>
+                <p>peers : <%= torrent["peers"] %></p>
+                <p>size : <%= torrent["size"] %></p>
+                <p>size_bytes : <%= torrent["size_bytes"] %></p>
+                <p>quality : <%= torrent["quality"] %></p>
+                <%= form_tag '/movies/download', class: "form_torrent" do -%>
+                <%= hidden_field_tag 'id_movie', params[:id] %>
+                <%= hidden_field_tag 'url', 'https://yts.ag/torrent/download/' + torrent["hash"] %>
+                <%= hidden_field_tag 'hash', torrent["hash"] %>
+                <%= submit_tag "Download this torrent" %>
+                <% end -%>
+                </div>
+            <% end %>
+
+            </div>
+        </div>
+
+        <br>
+
+    </div>
+
+      <div class="col s12">
+        <h3>Synopsis</h3>
+        <%= @movie['description_full'] %>
+        <br>
+    </div>
+
+    <div class="row">
+        <div class="col s6">
+            <%= form_tag '/comments', methods: "post" do %>
+            <%= hidden_field_tag 'id_movie', params[:id] %>
+            <div class="field">
+                <%= label_tag :message %>
+                <%= text_field_tag :message, nil, :required => true %>
+            </div>
+
+            <div class="actions">
+                <%= submit_tag "Post Comment" %>
+            </div>
+            <% end %>
+        </div>
+    </div>
+
+    <div>
+        <% @comment.each do |c| %>
+        <p><%= User::get_nickname(c.user_id) %> : <%= c.message %> --- <%= c.created_at %></p>
+        <% end %>
+    </div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+    $(".form_torrent").submit(function() {
+        $("body").append("<div id='loading-overlay'></div><div id='loading-message'><span id='loading'>Loading page, please wait...</span></div>")
+    });
+</script>
+
+<script type="text/javascript">
+
+    $( ".movie" ).click(function(event) {
+      movie_id = jQuery(this).attr("id")
+
+      $.ajax({
+        url: "http://localhost:3000/movies/add_movie_collection/"+movie_id,
+        method: "POST",
+        success: function(data) {
+
+        }
+      });
+
+    });
+
+
+</script>
