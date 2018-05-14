@@ -31,5 +31,5 @@ Enjoy ;)
 # 3 About
 
 Project made with :
-- Thomas Charreyron
+- Thomas Charreyron (https://github.com/tcharrey)
 - Julien Chenaf
