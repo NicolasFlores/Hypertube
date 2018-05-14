@@ -26,3 +26,10 @@ Clone repository
 
 #--------------------------------
 Enjoy ;)
+
+
+# 3 About
+
+Project made with :
+- Thomas Charreyron
+- Julien Chenaf
